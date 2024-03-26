@@ -1,4 +1,4 @@
-FROM python:3.9-alpine3.13
+FROM python:3.9.18-alpine
 LABEL maintainer="arya"
 
 ENV PYTHONUNBUFFERED 1
