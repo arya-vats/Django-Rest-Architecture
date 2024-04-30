@@ -11,7 +11,7 @@ from rest_framework import serializers
 
 class UserSerializer(serializers.ModelSerializer):
 	"""Serializer for the user object"""
-
+ 
 	class Meta:
 		model = get_user_model()
 		fields = ["email",  "password", "name"]
@@ -44,4 +44,4 @@ class AuthTokenSerializer(serializers.Serializer):
 			raise serializers.ValidationError(msg, code='authorization')
 
 		attrs['user'] = user #setting the attr['user'] to user because the view will be expecting that
-		return attrs	
+		return attrs
