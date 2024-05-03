@@ -52,11 +52,12 @@ class Recipe(models.Model):
 	"""Recipe object."""
 	user = models.ForeignKey(
 		settings.AUTH_USER_MODEL, #best practice is to import from settings.py file to make sure that change in model changes it everywhere in our models
-		on_delete=models.CASCADE,
+		on_delete=models.CASCADE, #this typically means that if the user associated with a recipe gets deleted or deletes itself, then all the related recipes will be automatically deleted.
 	)
-	title = models.CharField(max_length=255),
-	description = models.TextField(blank=True),
-	price = models.DecimalField(max_digits=5, decimal_places=2),
+	title = models.CharField(max_length=255)
+	description = models.TextField(blank=True)
+	time_minutes = models.IntegerField()
+	price = models.DecimalField(max_digits=5, decimal_places=2)
 	link = models.CharField(max_length=255, blank=True)
 
 

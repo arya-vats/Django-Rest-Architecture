@@ -58,7 +58,7 @@ class ModelTests(TestCase):
  			'test@example.com',
  			'tespass123',
  		)
- 		recipe = models.recipe.create(
+ 		recipe = models.Recipe.objects.create(
  			user=user,
  			title='Sample recipe name',
  			time_minutes=5,
