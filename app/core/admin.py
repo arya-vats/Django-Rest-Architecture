@@ -47,6 +47,5 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(models.User, UserAdmin)
-admin.site.register(
-    models.Recipe
-)  # need not to specify the class as  we are not using customised django admin class like
+admin.site.register(models.Recipe)  # need not to specify the class as
+# we are not using customised django admin class like

@@ -60,7 +60,10 @@ class PublicUserApiTests(TestCase):
         res = self.client.post(CREATE_USER_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
-        user_exists = get_user_model().objects.filter(email=payload["email"]).exists()
+        User = get_user_model()
+        email = payload["email"]
+        user_exists = User.objects.filter(email=email).exists()
+
         self.assertTrue(user_exists)
 
     def test_create_token_for_user(self):

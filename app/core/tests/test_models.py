@@ -22,9 +22,10 @@ class ModelTests(TestCase):
         )
 
         self.assertEqual(user.email, email)
-        self.assertTrue(
-            user.check_password(password)
-        )  # assertequal is not used because we need to compare witht the hashed password
+        self.assertTrue(user.check_password(password))  # assertequal is not
+        # used
+        # because we need to compare
+        # with the hashed password
 
     def test_new_user_email_normalized(self):
         """Test email is normalized for new users."""

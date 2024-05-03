@@ -43,19 +43,31 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    USERNAME_FIELD = "email"  # this is how the default username field that comes with default user model is replaced with the field of our choice
+    USERNAME_FIELD = "email"  # this is how the default
+    # username field that comes
+    # with default user model is replaced with the field of our choice
 
 
-##this self.model in the database is essentially maaping our own user model to that of its build in model
-##self._db is merely used to provide support for multiple databases.
+# this self.model in
+# the database is essentially
+# maaping our own user model
+# to that of its build in model
+# self._db is merely used to provide support for multiple databases.
 
 
 class Recipe(models.Model):
     """Recipe object."""
 
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,  # best practice is to import from settings.py file to make sure that change in model changes it everywhere in our models
-        on_delete=models.CASCADE,  # this typically means that if the user associated with a recipe gets deleted or deletes itself, then all the related recipes will be automatically deleted.
+        settings.AUTH_USER_MODEL,  # best practice is to
+        # import from settings.py
+        # file to make sure that change in
+        # model changes it everywhere in our models
+        on_delete=models.CASCADE,  # this typically means
+        # that if the user
+        # associated with a recipe gets deleted or deletes itself,
+        # then all the related recipes
+        # will be automatically deleted.
     )
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)

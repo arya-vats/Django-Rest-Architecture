@@ -18,9 +18,9 @@ class AdminSiteTests(TestCase):
             email="admin@example.com",
             password="testpass123",
         )
-        self.client.force_login(
-            self.admin_user
-        )  # this means that any request we make to the client will be made by this user
+        self.client.force_login(self.admin_user)  # this means that
+        # any request we make
+        # to the client will be made by this user
         self.user = get_user_model().objects.create_user(
             email="user@example.com",
             password="testpass123",
