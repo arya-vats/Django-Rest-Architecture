@@ -59,12 +59,12 @@ class PublicUserApiTests(TestCase):
         }
         res = self.client.post(CREATE_USER_URL, payload)
 
-        self.assertEqual(res.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
         User = get_user_model()
         email = payload["email"]
         user_exists = User.objects.filter(email=email).exists()
 
-        self.assertTrue(user_exists)
+        self.assertFalse(user_exists)
 
     def test_create_token_for_user(self):
         """Test generates token for valid credentials."""
@@ -139,9 +139,8 @@ class PrivateUserApiTests(TestCase):
         self.assertEqual(
             res.data,
             {
-                "name": self.user.name,
                 "email": self.user.email,
-                "password": self.user.password,
+                "name": self.user.name,
             },
         )
 
